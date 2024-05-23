@@ -4,7 +4,7 @@ import pandas as pd
 
 class ProductInformation(BaseModel):
     """Information about an image."""
-
+    product_description:str = Field(description="description of product in p tag")
     product_features: str = Field(description="html bullet list")
     product_specifications: str = Field(
         description="2 columns , headless html table without styles"
@@ -18,10 +18,12 @@ class ProductInformation(BaseModel):
 product_output_structure = pd.DataFrame(
     columns=[
         "S2.Product Name",
+        "S2.Description",
         "S2.PDF Text",
         "S2.Features",
         "S2.Specifications",
         "S2.Certifications",
         "S2.Warranty",
+        "S2.Error"
     ]
 )
